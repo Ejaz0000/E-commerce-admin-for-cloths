@@ -138,7 +138,7 @@ const updateCate = () => {
                  >
                   <option value=''>No parent category</option>
                   {categories.length > 0 && categories.map(category =>(
-                    <option value={category._id}>{category.name}</option>
+                    <option key={category._id} value={category._id}>{category.name}</option>
             ))}  
                 </select>
                 </div>
@@ -149,7 +149,7 @@ const updateCate = () => {
                 onClick={addProperty}
                 >Add new property</button>
                 {properties.length > 0 && properties.map((property,index) =>(
-                    <div className='flex gap-1 mb-2'>
+                    <div key={index} className='flex gap-1 mb-2'>
                       <input className="mb-0" type="text" placeholder="Property Name(example: color, size...)" value={property.name} onChange={ev => handlePropertyNamedChange(index ,property, ev.target.value)}/>
                       <input className="mb-0" type="text" placeholder="Value" value={property.value} onChange={ev => handlePropertyValuesChange(index ,property, ev.target.value)}/>
                       <button type="button" className="btn-secondary" onClick={()=>removePoperty(index)}>Remove</button>
@@ -169,7 +169,7 @@ const updateCate = () => {
           <tbody>
             
              {categories.length > 0 && categories.map(category =>(
-              <tr>
+              <tr key={category._id}>
                 <td>{category.name}</td>
                 <td>{category?.parent?.name}</td>
                 <td>

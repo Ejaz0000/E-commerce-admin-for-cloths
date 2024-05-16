@@ -141,7 +141,7 @@ export default function Products() {
           <tbody>
             
              {products.map(product =>(
-              <tr>
+              <tr key={product._id}>
                 <td>{product.title}</td>
                 <td><button className='btn-simple' onClick={()=>addTofeature(product)}>Enter</button></td>
                 <td>
@@ -168,7 +168,7 @@ export default function Products() {
         <div className='inline-block border-4 border-green-300 rounded-md'>
         {!isLoading ? 
           (featProducts?.length>0 && featProducts?.map(featprod =>(
-            <span class="inline-flex items-center m-2 px-2 py-1 me-2 text-sm font-medium  text-gray-800 bg-green-300 rounded">
+            <span key={featprod.feat_id} class="inline-flex items-center m-2 px-2 py-1 me-2 text-sm font-medium  text-gray-800 bg-green-300 rounded">
              {featprod.feat_title}
             <button type="button" onClick={()=> removeFromFeature(featprod.feat_id)} class="inline-flex items-center p-1 ms-2 text-sm text-gray-400 bg-transparent rounded-sm hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-gray-300" data-dismiss-target="#badge-dismiss-dark" aria-label="Remove">
             <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
